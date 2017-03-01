@@ -1,0 +1,6 @@
+$l.ajax({
+    url: 'http://api.giphy.com/v1/gifs/search?q=24+jack+bauer&api_key=dc6zaTOxFJmzC&rating=pg',
+    type: 'GET'
+  })
+
+ .then(() => $l('div').append(`<img src=${gifs.data[0].images.original.url} />`))

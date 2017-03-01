@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
     <script src="lib/bundle.js" charset="utf-8"></script>
     <title></title>
   </head>
@@ -11,8 +12,84 @@
       First
       <a href="#">link</a>
     </div>
-    <div class="second" disabled="true" naz="dumb">
+    <div class="second" disabled="true" custom="testing">
       Second
     </div>
+    <li id="test">next value</li>
+    <main>
+
+      <section class="buttons">
+        <button class="bauer-button">Jack Bauer</button>
+
+        <button class="trending-button">Trending</button>
+
+        <form class="search">
+          <input type="text" />
+          <button type="submit">Search</button>
+        </form>
+
+        <button class="top-user-button">Top User</button>
+
+      </section>
+
+      <h2>Gifs</h2>
+
+      <ul class="gif-list">
+      <!-- a bunch of forecast 'li's will go here -->
+
+      </ul>
+
+    </main>
+
   </body>
 </html>
+
+<!-- <head>
+  <title>jQuery Lite</title>
+  <script type="text/javascript" src="lib/bundle.js" charset="utf-8"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+  <style media="screen">
+    .my-div {
+      padding: 20px;
+      text-align: center;
+    }
+    .party {
+      background-color: rebeccapurple;
+    }
+  </style>
+
+</head>
+<body>
+  <script>
+    $l(() => {
+      $l('.my-div.cool').on('click', () => alert('clicked'));
+      $l('.remove-me').remove();
+      setInterval(() => {
+        $l('.my-div.cool').toggleClass('party')
+      }, 500)
+      $l.ajax({
+        method: "GET",
+        url:  "http://api.openweathermap.org/data/2.5/weather",
+        data: { appid: "6593357a84983f34982acc13f791e08d", q: "NY,NY" },
+        success(data) {
+          const node = document.createElement("p");
+          $l(node).append(data);
+          $l('li').append(node);
+        }
+      })
+    });
+  </script>
+
+  <div class="my-div cool">
+    <h1>Hello!</h1>
+    <p class="remove-me">Remove me!</p>
+  </div>
+
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+</body>
+</html> -->
