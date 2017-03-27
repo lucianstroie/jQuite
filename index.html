@@ -2,43 +2,88 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
 
     <script src="lib/bundle.js" charset="utf-8"></script>
-    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
   </head>
-  <body>
-    <div class="first">
-      First
-      <a href="#">link</a>
+  <body style="">
+    <div class="flex-container">
+      <header>
+        <h1>jQuite</h1>
+        <h3>A DOM manipulation library written in JavaScript for processing AJAX requests, event handling, and modifying elements.</h3>
+      </header>
+
+      <article class="article">
+        <h1>AJAX</h1>
+        <p>Make an AJAX call to the Giphy API and display the response data.</p>
+        <button id="bauer-button">Jack Bauer</button>
+          <ul id="bauer">Turn Me into a GIF!</li>
+        <p><strong></strong></p>
+      </article>
+      <article class="article">
+        <h1>Event Handling</h1>
+        <p>Add an OnClick event listener.</p>
+        <button id="alert-button">Click to add alert!</button>
+        <br/>
+        <br/>
+        <button id="off-button">Turn Off EventListener</button>
+        <p><strong></strong></p>
+      </article>
+      <article class="article">
+        <h1>Modify Background Style</h1>
+        <p>Add an OnClick event listener.</p>
+        <button id="background">Background Color On</button>
+        <br/>
+        <br/>
+        <button id="remove-background">Background Color Off</button>
+        <p><strong></strong></p>
+      </article>
+
+      <footer>
+
+        <a href="https://lucianstroie.github.io/"><i class="fa fa-user-circle fa-3x" aria-hidden="true"></i></a>
+        <a href="mailto:luciandstroie@gmail.com"><i class="fa fa-envelope-open-o fa-3x" aria-hidden="true"></i></a>
+        <a href="https://github.com/lucianstroie"><i class="fa fa-github fa-3x" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/lstroie/"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a>
+      </footer>
     </div>
-    <div class="second" disabled="true" custom="testing">
-      Second
-    </div>
-    <li id="test">next value</li>
-    <main>
 
-      <section class="buttons">
-        <button class="bauer-button">Jack Bauer</button>
+    <script type="text/javascript">
 
-        <button class="trending-button">Trending</button>
+    $l('#bauer-button').on("click",  () => {
+        $l.ajax({
+          url: 'http://api.giphy.com/v1/gifs/search?q=24+jack+bauer&api_key=dc6zaTOxFJmzC&rating=pg',
+          type: 'GET',
+          success(data){
+            const imageUrl = data['data'][0]['images']['fixed_width']['url']
+            $l('#bauer').html(`<img src=${imageUrl}>`)
+          }
+        })
+      })
 
-        <form class="search">
-          <input type="text" />
-          <button type="submit">Search</button>
-        </form>
+      $l('#alert-button').on("click", () => {
+        $l('#alert-button').on("click", () => {
+          alert('Event Added! Yay!')
+        })
+        $l('#alert-button').html('Event Added!')
+      })
 
-        <button class="top-user-button">Top User</button>
+      $l('#off-button').on("click", () => {
+        $l('#alert-button').off("click")
+        $l('#off-button').html('Event Removed!')
+        $l('#alert-button').html('No more alert pop-up!')
+      })
 
-      </section>
-
-      <h2>Gifs</h2>
-
-      <ul class="gif-list">
-
-      </ul>
-
-    </main>
-
+      $l('#background').on("click", () => {
+        $l('body').addClass('grey')
+      })
+      $l('#remove-background').on("click", () => {
+        $l('body').removeClass('grey')
+      })
+    </script>
   </body>
 </html>
