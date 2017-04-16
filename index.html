@@ -56,7 +56,7 @@
 
     $l('#bauer-button').on("click",  () => {
         $l.ajax({
-          url: 'http://api.giphy.com/v1/gifs/search?q=24+jack+bauer&api_key=dc6zaTOxFJmzC&rating=pg',
+          url: 'https://api.giphy.com/v1/gifs/search?q=24+jack+bauer&api_key=dc6zaTOxFJmzC&rating=pg',
           type: 'GET',
           success(data){
             const imageUrl = data['data'][0]['images']['fixed_width']['url']
