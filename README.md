@@ -6,7 +6,11 @@ A DOM manipulation library written in JavaScript for processing AJAX requests, e
 
 ## Basic Structure
 
-The core class of jQuite.js is `DOMNodeCollection`. It contains an array of all DOM elements and its functions use the class' `each` function to call the function on each DOM element. 
+The core class of jQuite.js is `DOMNodeCollection`. It contains an array of all DOM elements and its functions use the class' `each` function to call the function on each DOM element.
+
+### Using jQuite
+
+Download the original files lib/dom_node_collection.js and lib/main.js and use webpack to compile the files. Import the bundle.js file into your index.html file using a script tag.
 
 ### DOM Selection
 
